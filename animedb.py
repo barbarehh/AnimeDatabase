@@ -93,17 +93,18 @@ def main():
         if choice == 1:
             anime_name = input(">>> Enter name: ")
             sport_type = input(">>> Enter type of sport: ")
-            finished = input(">>> Is the anime finished? [y/n]: ")
-            try:
-                if finished == "y":
-                    finished = 1
-                elif finished == "n":
-                    finished = 0
-                else:
-                    pass
-            except:
-                raise ValueError("Please enter only 'y' or 'n'")
-
+            
+            while True:
+                 finished = input(">>> Is the anime finished? [y/n]: ")
+                    if finished == "y":
+                        finished = 1
+                        break
+                    elif finished == "n":
+                        finished = 0
+                        break
+                    else:
+                        print("Please enter only 'y' or 'n'")
+  
             rate = float(input(">>> Enter rating: "))
 
             obj.insert_row(anime_name, sport_type, finished, rate, False)
